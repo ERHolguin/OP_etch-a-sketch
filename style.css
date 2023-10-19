@@ -2,11 +2,15 @@
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-gap: 10px;
-    width: 300px;
+    width: 960px;
 }
 
 .singleCell {
     background-color: #e0e0e0;
-    padding: 10px;
-    border: 1px solid black
+    max-height: 0;
+    padding-top: 100px;
+}
+
+.singleCell:hover {
+    background-color: blue;
 }
