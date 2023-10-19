@@ -9,10 +9,18 @@ for (let i = 0; i < rows; i++) {
         singleCell.className = 'singleCell';
         singleCell.textContent = ('');
 
+        function changeColor() {
+            singleCell.style.backgroundColor = 'blue';
+        }
+
+        singleCell.addEventListener('mouseover', changeColor);
+
         gridContainer.appendChild(singleCell);
+        
     }
 }
-    
+
+
 
 // what needs to happen next?
 //
