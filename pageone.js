@@ -2,6 +2,7 @@ let rows = 0;
 let columns = 0;
 
 const gridContainer = document.getElementById('main-grid');
+let userButton = document.getElementById('newGrid');
 
 function defaultGrid(rows, columns) {
 for (let i = 0; i < rows; i++) {   
@@ -13,16 +14,31 @@ for (let i = 0; i < rows; i++) {
         function changeColor() {
             singleCell.style.backgroundColor = 'blue';
         }
-
         singleCell.addEventListener('mouseover', changeColor);
-
+    
         gridContainer.appendChild(singleCell);
         
     }
 }
 }
 
-defaultGrid(16, 161);
+defaultGrid(16, 16);
+
+function removeGrid() {
+    gridContainer.textContent = '';
+}
+
+function createGrid() {
+    let rows = prompt('Width Size', '0');
+    let columns = prompt('Height Size', '0');
+    let value1 = parseInt(rows);
+    let value2 = parseInt(columns);
+    defaultGrid(rows, columns);
+}
+
+userButton.addEventListener('click', removeGrid)
+userButton.addEventListener('click', createGrid)
+
 
 
 // what needs to happen next?
