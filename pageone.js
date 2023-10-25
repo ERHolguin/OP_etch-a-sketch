@@ -1,23 +1,26 @@
-let rows = 0;
-let columns = 0;
 
 const gridContainer = document.getElementById('main-grid');
 let userButton = document.getElementById('newGrid');
 
 function defaultGrid(rows, columns) {
-for (let i = 0; i < rows; i++) {   
+for (let i = 0; i < rows; i++) { 
+    let rows = document.createElement('div');
+    rows.className = 'row';
+    gridContainer.appendChild(rows);
+    rows.textContent = ('');
+    gridContainer.appendChild(rows);
+
     for (let j = 0; j < columns; j++) {
-        const singleCell = document.createElement('div');
-        singleCell.className = 'singleCell';
-        singleCell.textContent = ('');
+        let columns = document.createElement('div');
+        columns.className = 'columns';
+        columns.textContent = ('');
+        rows.appendChild(columns);
+
 
         function changeColor() {
-            singleCell.style.backgroundColor = 'blue';
+            columns.style.backgroundColor = 'blue';
         }
-        singleCell.addEventListener('mouseover', changeColor);
-    
-        gridContainer.appendChild(singleCell);
-        
+        columns.addEventListener('mouseover', changeColor);        
     }
 }
 }
@@ -29,10 +32,10 @@ function removeGrid() {
 }
 
 function createGrid() {
-    let rows = prompt('Width Size', '0');
-    let columns = prompt('Height Size', '0');
-    let value1 = parseInt(rows);
-    let value2 = parseInt(columns);
+    let rows = prompt('Width Size');
+    let columns = prompt('Height Size');
+    //let value1 = parseInt(rows);
+    //let value2 = parseInt(columns);
     defaultGrid(rows, columns);
 }
 
@@ -42,9 +45,7 @@ userButton.addEventListener('click', createGrid)
 
 
 // what needs to happen next?
-// Add a button to the top of the screen
-// This button will send the user a popup asking the number of squares per side for a new grid
-// The existing grid should be replaced by the new one created by the user, in the same total space as before (960px wide)
+// Make grid size spread evenly
 // Set the limit for user input to max of 100
 
 //extra credit 

@@ -1,3 +1,8 @@
+body {
+    height: 100%;
+    width: 100%;
+}
+
 .content {
     max-width: 960px;
     padding: 25px;
@@ -14,20 +19,20 @@
 
 #main-grid {
     display: grid;
-    grid-template-columns: repeat(16, 16fr);
+    grid-template-columns: repeat(16, auto);
     min-width: 960px;
     max-width: 960px;
     margin-top: 100px;
 }
 
-.singleCell {
+.columns {
     position: relative;
     border: 1px solid;
     box-sizing: border-box;
     background-color: #e0e0e0;
 }
 
-.singleCell::before {
+.columns::before {
     content: '';
     display: block;
     padding-top: 100%;
