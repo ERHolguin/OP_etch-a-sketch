@@ -1,8 +1,8 @@
 
 const gridContainer = document.getElementById('gridContainer');
 let userButton = document.getElementById('newGrid');
-let defaultColorButton = document.getElementById('defaultColor')
-let multiColorButton = document.getElementById('multiColors')
+//let defaultColorButton = document.getElementById('defaultColor')
+//let multiColorButton = document.getElementById('multiColors')
 
 function defaultGrid(rows, columns) {
 for (let i = 0; i < rows; i++) { 
@@ -17,7 +17,7 @@ for (let i = 0; i < rows; i++) {
         columns.textContent = ('');
         rows.appendChild(columns); 
 
-        function defaultColorSelection() {
+        function defaultColor() {
             columns.style.backgroundColor = 'black';
         } 
 
@@ -31,15 +31,18 @@ for (let i = 0; i < rows; i++) {
             return columns.style.backgroundColor = colors;
         }
 
-       
-        //columns.addEventListener('mouseover', defaultColorSelection);     
-        columns.addEventListener('mouseover', multiColor);     
+        //columns.addEventListener('mouseover', defaultColor)
+
+        columns.addEventListener('mouseover', multiColor)
 
     }
 }
 }
 
 defaultGrid(16, 16);
+
+
+
 
 
 
@@ -50,7 +53,12 @@ function removeGrid() {
 function createGrid() {
     let rows = prompt('Width Size');
     let columns = prompt('Height Size');
-    defaultGrid(rows, columns);
+    if (rows <= 100 && columns <= 100) {
+        defaultGrid(rows, columns);
+    } else {
+        removeGrid();
+        alert ("Invalid Input. Please enter a dimension smaller than 100")
+    }
 }
 
 userButton.addEventListener('click', removeGrid)
