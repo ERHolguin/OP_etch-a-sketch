@@ -1,12 +1,13 @@
 
-const gridContainer = document.getElementById('main-grid');
+const gridContainer = document.getElementById('gridContainer');
 let userButton = document.getElementById('newGrid');
+let defaultColorButton = document.getElementById('defaultColor')
+let multiColorButton = document.getElementById('multiColors')
 
 function defaultGrid(rows, columns) {
 for (let i = 0; i < rows; i++) { 
     let rows = document.createElement('div');
     rows.className = 'row';
-    gridContainer.appendChild(rows);
     rows.textContent = ('');
     gridContainer.appendChild(rows);
 
@@ -14,18 +15,33 @@ for (let i = 0; i < rows; i++) {
         let columns = document.createElement('div');
         columns.className = 'columns';
         columns.textContent = ('');
-        rows.appendChild(columns);
+        rows.appendChild(columns); 
 
+        function defaultColorSelection() {
+            columns.style.backgroundColor = 'black';
+        } 
 
-        function changeColor() {
-            columns.style.backgroundColor = 'blue';
+        function multiColor() {
+            const colors = [];
+
+            for(let i = 0; i < 10; i++); {
+                const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                colors.push(randomColor);
+            } 
+            return columns.style.backgroundColor = colors;
         }
-        columns.addEventListener('mouseover', changeColor);        
+
+       
+        //columns.addEventListener('mouseover', defaultColorSelection);     
+        columns.addEventListener('mouseover', multiColor);     
+
     }
 }
 }
 
 defaultGrid(16, 16);
+
+
 
 function removeGrid() {
     gridContainer.textContent = '';
@@ -34,8 +50,6 @@ function removeGrid() {
 function createGrid() {
     let rows = prompt('Width Size');
     let columns = prompt('Height Size');
-    //let value1 = parseInt(rows);
-    //let value2 = parseInt(columns);
     defaultGrid(rows, columns);
 }
 
