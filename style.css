@@ -34,25 +34,31 @@ body {
 }
 
 #gridContainer {
-    display: grid;
-    grid-template-columns: repeat(16, auto);
-    position: relative;
-    width: 960px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    max-width: 960px;
     height: auto;
-    aspect-ratio: 1 / 1;
-    margin-top: 100px;
     border: 5px solid red;
+
 }
 
 .columns {
+    flex-grow: grow;
+    flex-wrap: wrap;
     border: 1px solid black;
     background-color: lightgray;
-    
+    min-width: 50px;
+    min-height: 50px;
+    content: '';
 }
 
+
+/*Do not delete below this line. These setting allow the grids to remain perfect squares*/
+/*
 .columns::before {
     content: '';
-    display: grid;
+    display: flex;
     padding-top: 100%;
 }
 

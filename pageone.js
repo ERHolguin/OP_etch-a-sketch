@@ -1,4 +1,5 @@
-
+let row;
+let column;
 const gridContainer = document.getElementById('gridContainer');
 let userButton = document.getElementById('newGrid');
 //let defaultColorButton = document.getElementById('defaultColor')
