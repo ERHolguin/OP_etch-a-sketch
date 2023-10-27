@@ -52,23 +52,7 @@ body {
 
 .rows {
     flex-grow: 1;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
     padding-top: 100%;
     padding-top: 100%;
-}
-
-
-/*Do not delete below this line. These setting allow the grids to remain perfect squares*/
-/*
-.columns::before {
-    content: '';
-    display: flex;
-    padding-top: 100%;
-}
-
-.columns .content {
-    position: absolute;
-    top: 0; left: 0;
-    height: 100%;
-    width: 100%;
 }
