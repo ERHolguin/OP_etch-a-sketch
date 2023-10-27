@@ -5,21 +5,21 @@ let userButton = document.getElementById('newGrid');
 //let defaultColorButton = document.getElementById('defaultColor')
 //let multiColorButton = document.getElementById('multiColors')
 
-function defaultGrid(rows, columns) {
-for (let i = 0; i < rows; i++) { 
-    let rows = document.createElement('div');
-    rows.className = 'row';
-    rows.textContent = ('');
-    gridContainer.appendChild(rows);
+function defaultGrid(columns, rows) {
+for (let i = 0; i < columns; i++) { 
+    let columns = document.createElement('div');
+    columns.className = 'columns';
+    columns.textContent = ('');
+    gridContainer.appendChild(columns);
 
-    for (let j = 0; j < columns; j++) {
-        let columns = document.createElement('div');
-        columns.className = 'columns';
-        columns.textContent = ('');
-        rows.appendChild(columns); 
+    for (let j = 0; j < rows; j++) {
+        let rows = document.createElement('div');
+        rows.className = 'rows';
+        rows.textContent = ('');
+        columns.appendChild(rows); 
 
         function defaultColor() {
-            columns.style.backgroundColor = 'black';
+            rows.style.backgroundColor = 'black';
         } 
 
         function multiColor() {
@@ -29,12 +29,12 @@ for (let i = 0; i < rows; i++) {
                 const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
                 colors.push(randomColor);
             } 
-            return columns.style.backgroundColor = colors;
+            return rows.style.backgroundColor = colors;
         }
 
-        //columns.addEventListener('mouseover', defaultColor)
+        //rows.addEventListener('mouseover', defaultColor)
 
-        columns.addEventListener('mouseover', multiColor)
+        rows.addEventListener('mouseover', multiColor)
 
     }
 }
@@ -55,7 +55,7 @@ function createGrid() {
     let rows = prompt('Width Size');
     let columns = prompt('Height Size');
     if (rows <= 100 && columns <= 100) {
-        defaultGrid(rows, columns);
+        defaultGrid(columns, rows);
     } else {
         removeGrid();
         alert ("Invalid Input. Please enter a dimension smaller than 100")
